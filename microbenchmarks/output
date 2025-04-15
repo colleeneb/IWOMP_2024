@@ -1,0 +1,542 @@
+OpenMP flop-rate
+Cloning into 'abc-pvc-deepdive'...
+Updating files:  96% (248/256)Updating files:  97% (249/256)Updating files:  98% (251/256)Updating files:  99% (254/256)Updating files: 100% (256/256)Updating files: 100% (256/256), done.
+Single Precision Peak Flops: 22730.7 GFlop/s
+Double Precision Peak Flops: 11293.3 GFlop/s
+SYCL flop-rate
+icpx: warning: Use of '-qopenmp' recommended over '-fopenmp' [-Wrecommended-option]
+Single Precision Peak Flops: 22648.3 GFlop/s
+Double Precision Peak Flops: 11274.4 GFlop/s
+OpenMP flop-rate
+Cloning into 'BabelStream'...
+Updating files:  78% (230/294)Updating files:  79% (233/294)Updating files:  80% (236/294)Updating files:  81% (239/294)Updating files:  82% (242/294)Updating files:  83% (245/294)Updating files:  84% (247/294)Updating files:  85% (250/294)Updating files:  86% (253/294)Updating files:  87% (256/294)Updating files:  88% (259/294)Updating files:  89% (262/294)Updating files:  90% (265/294)Updating files:  91% (268/294)Updating files:  92% (271/294)Updating files:  93% (274/294)Updating files:  94% (277/294)Updating files:  95% (280/294)Updating files:  96% (283/294)Updating files:  97% (286/294)Updating files:  98% (289/294)Updating files:  99% (292/294)Updating files: 100% (294/294)Updating files: 100% (294/294), done.
+-- The CXX compiler identification is IntelLLVM 2025.0.0
+-- The C compiler identification is IntelLLVM 2025.0.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/icpx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/icx - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+No CMAKE_BUILD_TYPE specified, defaulting to 'Release'
+-- CXX_EXTRA_LINK_FLAGS: 
+        Appends to link flags which appear *before* the objects.
+        Do not use this for linking libraries, as the link line is order-dependent
+-- CXX_EXTRA_LIBRARIES: 
+        Append to link flags which appear *after* the objects.
+        Use this for linking extra libraries (e.g `-lmylib`, or simply `mylib`)
+-- CXX_EXTRA_LINKER_FLAGS: 
+        Append to linker flags (i.e GCC's `-Wl` or equivalent)
+-- Available models:  omp;ocl;std-data;std-indices;std-ranges;hip;cuda;kokkos;sycl;sycl2020-acc;sycl2020-usm;acc;raja;tbb;thrust;futhark
+-- Selected model  :  omp
+-- Supported flags:
+
+   CMAKE_CXX_COMPILER (optional, default=c++): Any CXX compiler that supports OpenMP as per CMake detection (and offloading if enabled with `OFFLOAD`)
+   ARCH (optional, default=): This overrides CMake's CMAKE_SYSTEM_PROCESSOR detection which uses (uname -p), this is mainly for use with
+         specialised accelerators only and not to be confused with offload which is is mutually exclusive with this.
+         Supported values are:
+          - NEC
+   OFFLOAD (optional, default=OFF): Whether to use OpenMP offload, the format is <VENDOR:ARCH?>|ON|OFF.
+        We support a small set of known offload flags for clang, gcc, and icpx.
+        However, as offload support is rapidly evolving, we recommend you directly supply them via OFFLOAD_FLAGS.
+        For example:
+          * OFFLOAD=NVIDIA:sm_60
+          * OFFLOAD=AMD:gfx906
+          * OFFLOAD=INTEL
+          * OFFLOAD=ON OFFLOAD_FLAGS=...
+   OFFLOAD_FLAGS (optional, default=): If OFFLOAD is enabled, this *overrides* the default offload flags
+   OFFLOAD_APPEND_LINK_FLAG (optional, default=ON): If enabled, this appends all resolved offload flags (OFFLOAD=<vendor:arch> or directly from OFFLOAD_FLAGS) to the link flags.
+        This is required for most offload implementations so that offload libraries can linked correctly.
+
+-- Model-specific flags for this build:
+
+   CMAKE_CXX_COMPILER = `/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/icpx`
+   ARCH = ``
+   OFFLOAD = `ON`
+   OFFLOAD_FLAGS = ``
+   OFFLOAD_APPEND_LINK_FLAG = `ON`
+
+-- Found OpenMP_C: -fiopenmp (found version "5.1") 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1")  
+-- OMP CXX  flags : 
+-- OMP Link flags : 
+-- Default Release flags are `-O3;-march=native`, set RELEASE_FLAGS to override (CXX_EXTRA_* flags are not affected)
+-- CXX vendor  : IntelLLVM (/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/icpx)
+-- Platform    : x86_64
+-- Sources     : src/omp/OMPStream.cpp
+-- Libraries   : OpenMP::OpenMP_CXX
+-- CXX Flags   :  -DNDEBUG -O3;-march=native -fiopenmp;-fopenmp-targets=spir64
+    CXX flags derived from (CMake + (Override ? Override : Default) + Extras), where:
+        CMake                    = ` -DNDEBUG`
+        Default                  = `-O3;-march=native`
+        Override (RELEASE_FLAGS) = ``
+        Extras (CXX_EXTRA_FLAGS) = `-fiopenmp;-fopenmp-targets=spir64`
+-- Link Flags  :  -fiopenmp;-fopenmp-targets=spir64
+-- Linker Flags:   
+-- Defs        : OMP;OMP_TARGET_GPU
+-- Executable  : omp-stream
+-- Configuring done (3.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/build
+[ 33%] Building CXX object CMakeFiles/omp-stream.dir/src/omp/OMPStream.cpp.o
+warning: loop not vectorized: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+warning: loop not vectorized: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+2 warnings generated.
+[ 66%] Building CXX object CMakeFiles/omp-stream.dir/src/main.cpp.o
+[100%] Linking CXX executable omp-stream
+[100%] Built target omp-stream
+BabelStream
+Version: 5.0
+Implementation: OpenMP
+Running kernels 300 times
+Precision: double
+Array size: 2441.4 MiB (=2.4 GiB)
+Total size: 7324.2 MiB (=7.2 GiB)
+Init: 0.550837 s (=13296.514664 MiBytes/sec)
+Read: 0.007132 s (=1026921.209987 MiBytes/sec)
+Function    MiBytes/sec Min (sec)   Max         Average     
+Copy        1055009.185 0.00463     0.00484     0.00467     
+Mul         1069736.085 0.00456     0.00471     0.00460     
+Add         981780.204  0.00746     0.00763     0.00751     
+Triad       990592.057  0.00739     0.00760     0.00746     
+Dot         851712.072  0.00573     0.00609     0.00586     
+SYCL flop-rate
+No CMAKE_BUILD_TYPE specified, defaulting to 'Release'
+-- CXX_EXTRA_LINK_FLAGS: 
+        Appends to link flags which appear *before* the objects.
+        Do not use this for linking libraries, as the link line is order-dependent
+-- CXX_EXTRA_LIBRARIES: 
+        Append to link flags which appear *after* the objects.
+        Use this for linking extra libraries (e.g `-lmylib`, or simply `mylib`)
+-- CXX_EXTRA_LINKER_FLAGS: 
+        Append to linker flags (i.e GCC's `-Wl` or equivalent)
+-- Available models:  omp;ocl;std-data;std-indices;std-ranges;hip;cuda;kokkos;sycl;sycl2020-acc;sycl2020-usm;acc;raja;tbb;thrust;futhark
+-- Selected model  :  sycl
+-- Supported flags:
+
+   CMAKE_CXX_COMPILER (optional, default=c++): Any CXX compiler that is supported by CMake detection, this is used for host compilation when required by the SYCL compiler
+   SYCL_COMPILER (required): Compile using the specified SYCL compiler implementation
+        Supported values are
+           ONEAPI-ICPX  - icpx as a standalone compiler
+           ONEAPI-Clang - oneAPI's Clang driver (enabled via `source /opt/intel/oneapi/setvars.sh  --include-intel-llvm`)
+           DPCPP        - dpc++ as a standalone compiler (https://github.com/intel/llvm)
+           HIPSYCL      - hipSYCL compiler (https://github.com/illuhad/hipSYCL)
+           COMPUTECPP   - ComputeCpp compiler (https://developer.codeplay.com/products/computecpp/ce/home)
+   SYCL_COMPILER_DIR (optional, default=): Absolute path to the selected SYCL compiler directory, most are packaged differently so set the path according to `SYCL_COMPILER`:
+           ONEAPI-ICPX              - `icpx` must be used for OneAPI 2023 and later on releases (i.e `source /opt/intel/oneapi/setvars.sh` first)
+           ONEAPI-Clang             - set to the directory that contains the Intel clang++ binary.
+           HIPSYCL|DPCPP|COMPUTECPP - set to the root of the binary distribution that contains at least `bin/`, `include/`, and `lib/`
+   OpenCL_LIBRARY (optional, default=): [ComputeCpp only] Path to OpenCL library, usually called libOpenCL.so
+
+-- Model-specific flags for this build:
+
+   CMAKE_CXX_COMPILER = `/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/icpx`
+   SYCL_COMPILER = `ONEAPI-ICPX`
+   SYCL_COMPILER_DIR = ``
+   OpenCL_LIBRARY = ``
+
+-- Default Release flags are `-O3;-march=native;-fsycl`, set RELEASE_FLAGS to override (CXX_EXTRA_* flags are not affected)
+-- CXX vendor  : IntelLLVM (icpx)
+-- Platform    : x86_64
+-- Sources     : src/sycl/SYCLStream.cpp
+-- Libraries   : 
+-- CXX Flags   :  -DNDEBUG -O3;-march=native;-fsycl -fsycl;-fsycl-targets=spir64
+    CXX flags derived from (CMake + (Override ? Override : Default) + Extras), where:
+        CMake                    = ` -DNDEBUG`
+        Default                  = `-O3;-march=native;-fsycl`
+        Override (RELEASE_FLAGS) = ``
+        Extras (CXX_EXTRA_FLAGS) = `-fsycl;-fsycl-targets=spir64`
+-- Link Flags  : -fsycl -fsycl;-fsycl-targets=spir64
+-- Linker Flags:   
+-- Defs        : SYCL
+-- Executable  : sycl-stream
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/build
+[ 33%] Building CXX object CMakeFiles/sycl-stream.dir/src/sycl/SYCLStream.cpp.o
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:8:
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.h:13:
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/CL/sycl.hpp:14:2: warning: "CL/sycl.hpp is deprecated, use sycl/sycl.hpp" [-W#warnings]
+   14 | #warning "CL/sycl.hpp is deprecated, use sycl/sycl.hpp"
+      |  ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:185:76: warning: 'local' is deprecated: use `local_accessor` instead [-Wdeprecated-declarations]
+  185 |     auto wg_sum = accessor<T, 1, access::mode::read_write, access::target::local>(range<1>(dot_wgsize), cgh);
+      |                                                                            ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/access/access.hpp:25:9: note: 'local' has been explicitly marked deprecated here
+   25 |   local __SYCL2020_DEPRECATED("use `local_accessor` instead") = 2016,
+      |         ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:321:16: note: in instantiation of member function 'SYCLStream<float>::dot' requested here
+  321 | template class SYCLStream<float>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:321:16: note: in instantiation of member function 'SYCLStream<float>::read_arrays' requested here
+  321 | template class SYCLStream<float>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:322:16: note: in instantiation of member function 'SYCLStream<double>::dot' requested here
+  322 | template class SYCLStream<double>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:322:16: note: in instantiation of member function 'SYCLStream<double>::read_arrays' requested here
+  322 | template class SYCLStream<double>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+18 warnings generated.
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:8:
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.h:13:
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/CL/sycl.hpp:14:2: warning: "CL/sycl.hpp is deprecated, use sycl/sycl.hpp" [-W#warnings]
+   14 | #warning "CL/sycl.hpp is deprecated, use sycl/sycl.hpp"
+      |  ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:185:76: warning: 'local' is deprecated: use `local_accessor` instead [-Wdeprecated-declarations]
+  185 |     auto wg_sum = accessor<T, 1, access::mode::read_write, access::target::local>(range<1>(dot_wgsize), cgh);
+      |                                                                            ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/access/access.hpp:25:9: note: 'local' has been explicitly marked deprecated here
+   25 |   local __SYCL2020_DEPRECATED("use `local_accessor` instead") = 2016,
+      |         ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:321:16: note: in instantiation of member function 'SYCLStream<float>::dot' requested here
+  321 | template class SYCLStream<float>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:321:16: note: in instantiation of member function 'SYCLStream<float>::read_arrays' requested here
+  321 | template class SYCLStream<float>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:322:16: note: in instantiation of member function 'SYCLStream<double>::dot' requested here
+  322 | template class SYCLStream<double>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:212:32: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  212 |   auto h_sum = d_sum->template get_access<access::mode::read>();
+      |                                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:322:16: note: in instantiation of member function 'SYCLStream<double>::read_arrays' requested here
+  322 | template class SYCLStream<double>;
+      |                ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:243:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  243 |   auto _a = d_a->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:244:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  244 |   auto _b = d_b->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:519:37: note: 'get_access' has been explicitly marked deprecated here
+  519 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+/home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.cpp:245:27: warning: 'get_access<sycl::access::mode::read>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+  245 |   auto _c = d_c->template get_access<access::mode::read>();
+      |                           ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/buffer.hpp:513:3: note: 'get_access<sycl::access::mode::read>' has been explicitly marked deprecated here
+  513 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+18 warnings generated.
+[ 66%] Building CXX object CMakeFiles/sycl-stream.dir/src/main.cpp.o
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/main.cpp:47:
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.h:13:
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/CL/sycl.hpp:14:2: warning: "CL/sycl.hpp is deprecated, use sycl/sycl.hpp" [-W#warnings]
+   14 | #warning "CL/sycl.hpp is deprecated, use sycl/sycl.hpp"
+      |  ^
+1 warning generated.
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/main.cpp:47:
+In file included from /home/bertoni/projects/p61.iwomp2025/IWOMP_2024/microbenchmarks/BabelStream/src/sycl/SYCLStream.h:13:
+/opt/aurora/24.180.3/updates/oneapi/compiler/eng-20240629/bin/compiler/../../include/sycl/CL/sycl.hpp:14:2: warning: "CL/sycl.hpp is deprecated, use sycl/sycl.hpp" [-W#warnings]
+   14 | #warning "CL/sycl.hpp is deprecated, use sycl/sycl.hpp"
+      |  ^
+1 warning generated.
+[100%] Linking CXX executable sycl-stream
+[100%] Built target sycl-stream
+BabelStream
+Version: 5.0
+Implementation: SYCL
+Running kernels 300 times
+Precision: double
+Array size: 2441.4 MiB (=2.4 GiB)
+Total size: 7324.2 MiB (=7.2 GiB)
+Using SYCL device Intel(R) Data Center GPU Max 1550
+Driver: 1.3.30872
+Reduction kernel config: 1792 groups of size 1024
+Init: 1.320798 s (=5545.299791 MiBytes/sec)
+Read: 0.119405 s (=61339.331349 MiBytes/sec)
+Function    MiBytes/sec Min (sec)   Max         Average     
+Copy        1048285.120 0.00466     0.00476     0.00469     
+Mul         1076410.084 0.00454     0.00460     0.00455     
+Add         985984.834  0.00743     0.00759     0.00745     
+Triad       994933.212  0.00736     0.00766     0.00743     
+Dot         792406.835  0.00616     0.00638     0.00625     
