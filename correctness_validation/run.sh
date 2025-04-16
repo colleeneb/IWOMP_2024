@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INTEL_FLAGS="-fiopenmp -fopenmp-targets=spir64 -fp-model=precise"
+export INTEL_FLAGS="-fiopenmp -fopenmp-targets=spir64 -fp-model=precise"
 
 rm -rf OvO
 git clone https://github.com/TApplencourt/OvO.git
@@ -19,27 +19,27 @@ git clone git@github.com:OpenMP-Validation-and-Verification/OpenMP_VV.git
 
 cd OpenMP_VV
 
-make OMP_VERSION=4.5 CC='icx -std=c99 ${INTEL_FLAGS}' CXX='icpx -std=c++11 ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
+make OMP_VERSION=4.5 CC='icx  ${INTEL_FLAGS}' CXX='icpx  ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
 make report_summary
 
 make tidy
 
-make OMP_VERSION=5.0 CC='icx -std=c99 ${INTEL_FLAGS}' CXX='icpx -std=c++11 ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
+make OMP_VERSION=5.0 CC='icx  ${INTEL_FLAGS}' CXX='icpx  ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
 make report_summary
 
 make tidy
 
-make OMP_VERSION=5.1 CC='icx -std=c99 ${INTEL_FLAGS}' CXX='icpx -std=c++11 ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
+make OMP_VERSION=5.1 CC='icx  ${INTEL_FLAGS}' CXX='icpx  ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
 make report_summary
 
 make tidy
 
-make OMP_VERSION=5.2 CC='icx -std=c99 ${INTEL_FLAGS}' CXX='icpx -std=c++11 ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
+make OMP_VERSION=5.2 CC='icx  ${INTEL_FLAGS}' CXX='icpx  ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
 make report_summary
 
 make tidy
 
-make OMP_VERSION=6.0 CC='icx -std=c99 ${INTEL_FLAGS}' CXX='icpx -std=c++11 ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
+make OMP_VERSION=6.0 CC='icx  ${INTEL_FLAGS}' CXX='icpx  ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
 make report_summary
 
 make tidy
