@@ -25,11 +25,11 @@ mkdir build
 cd build
 cmake ../  -DMODEL=omp -DOFFLOAD=ON -DCXX_EXTRA_FLAGS="-fiopenmp -fopenmp-targets=spir64"
 make
-ZE_AFFINITY_MASK=0.0 ./omp-stream -n 300 -s 320000000 --mibibytes
+ZE_AFFINITY_MASK=0.0 ./omp-stream -n 300 -s 100663296
 
 ## SYCL Stream:
 echo "SYCL flop-rate"
 make clean
 cmake ../  -DMODEL=sycl -DSYCL_COMPILER=ONEAPI-ICPX -DCXX_EXTRA_FLAGS="-fsycl -fsycl-targets=spir64"
 make
-ZE_AFFINITY_MASK=0.0 ./sycl-stream -n 300 -s 320000000 --mibibytes
+ZE_AFFINITY_MASK=0.0 ./sycl-stream -n 300 -s 100663296
