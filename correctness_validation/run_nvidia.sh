@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# PrgEnv-nvhpc/8.5.0
 
-export NVIDIA_FLAGS="-mp=gpu -gpu=cc80"
+module load nvhpc/nvhpc/24.1 cuda/12.3.0 
 
-#rm -rf OvO
-#git clone https://github.com/TApplencourt/OvO.git
+export NVIDIA_FLAGS="-mp=gpu -gpu=cc90"
+
+rm -rf OvO
+git clone https://github.com/TApplencourt/OvO.git
 cd OvO
 
 export OVO_TIMEOUT=200s
@@ -15,8 +16,8 @@ CXX='nvc++' CXXFLAGS="-std=c++17 ${NVIDIA_FLAGS}" FC="nvfortran" FFLAGS="${NVIDI
 ./ovo.sh report --summary test_result
  
 
-#rm -rf OpenMP_VV
-#git clone git@github.com:OpenMP-Validation-and-Verification/OpenMP_VV.git
+rm -rf OpenMP_VV
+git clone git@github.com:OpenMP-Validation-and-Verification/OpenMP_VV.git
 
 cd OpenMP_VV
 
