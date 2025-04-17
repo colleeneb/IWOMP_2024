@@ -6,7 +6,7 @@ rm -rf OvO
 git clone https://github.com/TApplencourt/OvO.git
 cd OvO
 
-export OVO_TIMEOUT=200s
+export OVO_TIMEOUT=60s
 
 CXX='icpx' CXXFLAGS="-std=c++17 ${INTEL_FLAGS}" FC="ifx" FFLAGS="${INTEL_FLAGS}" ./ovo.sh run test_src
 
