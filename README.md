@@ -4,4 +4,4 @@ OpenMP V&V commit: 72ec153c94491cabbc1912f3fb5466b2c8d62e53
 
 OvO commit: 198b5d0242f39f1c31ea98f9a1d360d332511a1d
 
-BabelStream commit:
+BabelStream commit: 2f00dfb7f8b7cfe8c53d20d5c770bccbf8673440
