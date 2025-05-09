@@ -18,7 +18,7 @@ rm -rf OpenMP_VV
 git clone git@github.com:OpenMP-Validation-and-Verification/OpenMP_VV.git
 
 cd OpenMP_VV
-
+git checkout 72ec153c94491cabbc1912f3fb5466b2c8d62e53
 make OMP_VERSION=4.5 CC='icx  ${INTEL_FLAGS}' CXX='icpx  ${INTEL_FLAGS}'  FC='ifx ${INTEL_FLAGS}' VERBOSE_TESTS=1 VERBOSE=1 LOG=1 LOG_ALL=1 all
 make report_summary
 
