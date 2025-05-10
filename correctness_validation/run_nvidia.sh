@@ -20,7 +20,7 @@ cd ..
 #git clone git@github.com:OpenMP-Validation-and-Verification/OpenMP_VV.git
 
 cd OpenMP_VV
-
+git checkout 72ec153c94491cabbc1912f3fb5466b2c8d62e53
 export OMPVV_NO_COMPILER_CHANGES=1
 make tidy
 
